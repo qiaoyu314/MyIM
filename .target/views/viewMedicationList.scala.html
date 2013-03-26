@@ -4,22 +4,26 @@
 
 <div class="tabbable tabs-top">
 	<ul class="nav nav-tabs">
-		<li><a href="#allMedication" data-toggle="tab">All Medication List</a></li>
-		<li><a href="#allCurrent" data-toggle="tab">All current Medication</a></li>
-		<li><a href="#allPrescribed" data-toggle="tab">All Prescribed Medication</a></li>
-		<li><a href="#sortByCondition" data-toggle="tab">Sort By Condition</a></li>
-		<li><a href="#sortByDate" data-toggle="tab">Sort By Date</a></li>
+		<li id="all_medication"><a href="/allMedication" >All Medication List</a></li>
+		<li id="all_current"><a  href="/allCurrent" >All current Medication</a></li>
+		<li><a href="/allPrescribed" >All Prescribed Medication</a></li>
+		<li><a href="/sortByCondition">Sort By Condition</a></li>
+		<li id="sory_by_date"><a href="/sortByDate" >Sort By Date</a></li>
 	</ul>
 </div>
 
 <div class="tab-content">
-	<div class="tab-pane active" id="allMedication">allMedication</div>
-	<div class="tab-pane" id="allCurrent">allCurrent</div>
-	<div class="tab-pane" id="allPrescribed">allPrescribed</div>
-	<div class="tab-pane" id="sortByCondition">sortByCondition</div>
-	<div class="tab-pane" id="sortByDate">sortByDate</div>
+	<div class="tab-pane" id="allMedication">@allMedication</div>
+	<div class="tab-pane" id="allCurrent">@allCurrent</div>
+	<div class="tab-pane" id="allPrescribed">@allPrescribed</div>
+	<div class="tab-pane" id="sortByCondition">@sortByCondition</div>
+	<div class="tab-pane" id="sortByDate">@sortByDate</div>
 </div>
-
+<script>
+	$("#tab1").attr("class", "tab-pane active");
+	$("#veiw_medication_list").attr("class", "active");
+	
+</script>
 } {
 
 } {

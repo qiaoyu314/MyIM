@@ -1,0 +1,33 @@
+@(allPrescribed: List[Medication]) 
+
+@viewMedicationList{ 
+
+}{
+
+} {
+<script>
+	//make the tag active
+	$("li#all_prescribed").attr("class", "active");
+	//make the content active
+	$("div#allPrescribed").attr("class", "tab-pane active");
+</script>
+
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Start Date</th>
+		<th>Pharmacy</th>
+	</tr>
+	@for(m<-allPrescribed){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		<td>@m.pharmacy.name</td>
+	</tr>
+	}
+</table>
+} {
+
+} {
+
+}

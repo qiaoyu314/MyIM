@@ -1,7 +1,12 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import models.Medication;
 
 import org.codehaus.jackson.JsonNode;
 import org.junit.*;
@@ -36,16 +41,19 @@ public class ApplicationTest {
     }
     
     @Test
-    public void renderTemplate() {
+    public void renderTemplate() throws ParseException {
     	/*
         Content html = views.html.index.render("Your new application is ready.");
         assertThat(contentType(html)).isEqualTo("text/html");
         assertThat(contentAsString(html)).contains("Your new application is ready.");
         */
 
-    	DataExtractor d = new DataExtractor("data/a.txt");
-    	d.getMedication();
-    	//System.out.println(d.getMedication().size());
+//    	Medication m = new Medication();
+//    	m.setPharmacy("abc", "6142825551");
+//    	SimpleDateFormat s = new SimpleDateFormat("dd MMM yyyy");
+//    	Date d = s.parse("18 Mar 2010");
+//    	System.out.println(d);
+
     }
   
    

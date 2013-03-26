@@ -6,3 +6,7 @@ div.container-fluid{
 div#tabs-left{
 	vertical-align:middle;
 }
+
+button.btn-info{
+	margin: 2px;
+}

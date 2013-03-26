@@ -1,13 +1,42 @@
-@(currentPrescribed: List[Medication], currentOTC: List[Medication], pastPresribed:List[Medication], pastOTC:List[Medication])
+@(allMedication: List[Medication])
 
 @viewMedicationList{
+<script>
+		//make the tag active
+		$("li#all_medication").attr("class", "active");
+		//make the content active
+		$("div#allMedication").attr("class", "tab-pane active");
+	</script>
 
-}{
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Strength</th>
+		<th>Dose</th>
+		<th>Frequency</th>
+		<th>Start Date</th>
+		<th>Stop Date</th>
+		<th>Reason for taking</th>
+		<th>Pharmacy</th>
+	</tr>
+	@for(m<-allMedication){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.category</td>
+		<td>@m.strength</td>
+		<td>@m.dose</td>
+		<td>@m.frequency</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		@if(m.lastTakenDate!=null){
+		<td>@m.lastTakenDate.format("MMM dd yyyy")</td> }else{
+		<td></td> }
+		<td>@m.reasonForTaking</td>
+		<td>@m.pharmacy.name</td>
+	</tr>
+	}
 
-}{
+</table>
+<button class="btn btn-danger"><a href="@routes.Application.deleteAllMedication()">Delete All</a></button>
 
-}{
-
-}{
-
-}
+}{ }{ }{ }{ }

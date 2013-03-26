@@ -1,0 +1,89 @@
+@(before2010: List[Medication], in2010:List[Medication], in2011:List[Medication], in2012:List[Medication], in2013: List[Medication])
+@viewMedicationList{
+
+} {
+
+} {
+
+} {
+
+} {
+	<script>
+		//make the tag active
+		$("li#sory_by_date").attr("class", "active");
+		//make the content active
+		$("div#sortByDate").attr("class", "tab-pane active");
+	</script>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>	To view the medication in a specific year, click the button with the year on it.
+  </h4>
+</div>
+
+<br/>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#before2010">Before 2010</button>
+<div id="before2010" class="collapse">
+	<table class="table">
+		<tr>
+			<th>Name</th><th>Start Date</th><th>Pharmacy</th>
+		</tr>
+		@for(m<-before2010){
+			<tr>
+				<td>@m.name</td><td>@m.startDate.format("MMM dd yyyy")</td><td>@m.pharmacy.name</td>
+			</tr>
+		}
+	</table>
+</div>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#in2010">2010</button>
+<div id="in2010" class="collapse">
+	<table class="table">
+		<tr>
+			<th>Name</th><th>Start Date</th><th>Pharmacy</th>
+		</tr>
+		@for(m<-in2010){
+			<tr>
+				<td>@m.name</td><td>@m.startDate.format("MMM dd yyyy")</td><td>@m.pharmacy.name</td>
+			</tr>
+		}
+	</table>
+</div>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#in2011">2011</button>
+<div id="in2011" class="collapse">
+	<table class="table">
+		<tr>
+			<th>Name</th><th>Start Date</th><th>Pharmacy</th>
+		</tr>
+		@for(m<-in2011){
+			<tr>
+				<td>@m.name</td><td>@m.startDate.format("MMM dd yyyy")</td><td>@m.pharmacy.name</td>
+			</tr>
+		}
+	</table>
+</div>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#in2012">2012</button>
+<div id="in2012" class="collapse">
+	<table class="table">
+		<tr>
+			<th>Name</th><th>Start Date</th><th>Pharmacy</th>
+		</tr>
+		@for(m<-in2012){
+			<tr>
+				<td>@m.name</td><td>@m.startDate.format("MMM dd yyyy")</td><td>@m.pharmacy.name</td>
+			</tr>
+		}
+	</table>
+</div>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#in2013">2013</button>
+<div id="in2013" class="collapse">
+	<table class="table">
+		<tr>
+			<th>Name</th><th>Start Date</th><th>Pharmacy</th>
+		</tr>
+		@for(m<-in2013){
+			<tr>
+				<td>@m.name</td><td>@m.startDate.format("MMM dd yyyy")</td><td>@m.pharmacy.name</td>
+			</tr>
+		}
+	</table>
+</div>
+}

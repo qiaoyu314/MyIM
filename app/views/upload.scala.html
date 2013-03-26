@@ -1,0 +1,63 @@
+@(message: String, files: List[MedicalFile])
+
+@main("Medication List"){ } { } { } { } {
+<p class="text-error">@message</p>
+<form action="@routes.Application.upload()" method="POST" enctype="multipart/form-data"
+	class="form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="name">Name</label>
+		<div class="controls">
+			<input type="text" name="name" id="name"
+				placeholder="Type the name..." />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="source">Source</label>
+		<div class="controls">
+			<select name="source">
+				<option value="Blue Button">Blue Button</option>
+			</select> 
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<input type="file" name="data" class="btn">
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+				<input type="submit" class="btn btn-primary">
+		</div>
+	</div>
+
+
+
+
+
+
+</form>
+<table class="table table-striped">
+	<tr>
+		<th>File Name</th>
+		<th>Source</th>
+		<th>Upload Date</th>
+		<th>Action</th>
+	</tr>
+	@for(f<-files){
+		<tr>
+			<td>@f.alias</td>
+			<td>@f.source</td>
+			<td>@f.uploadDate</td>
+			<td><a href="@routes.Application.deleteFile(f.id)">Delete</a></td>
+		</tr>
+	}
+	
+</table>
+<div></div>
+<script>
+	$("#uplad").attr("class", "active");
+	$("#tab5").attr("class","tab-pane active");
+//	$("#tab1").attr("class", "tab-pane");	
+//	$("#veiw_medication_list").attr("class", "");
+</script>
+}

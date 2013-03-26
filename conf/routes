@@ -3,15 +3,33 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                       controllers.Application.allMedication()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Tasks          
-GET     /tasks                  controllers.Application.tasks()
-POST    /tasks                  controllers.Application.newTask()
-POST    /tasks/:id/delete       controllers.Application.deleteTask(id: Long)
+#GET     /tasks                  controllers.Application.tasks()
+#POST    /tasks                  controllers.Application.newTask()
+#POST    /tasks/:id/delete       controllers.Application.deleteTask(id: Long)
 
 # Medication
+
+#tab1
 GET 	/allMedication 			controllers.Application.allMedication()
+GET 	/deleteAllMedication	controllers.Application.deleteAllMedication()
+GET		/allCurrent				controllers.Application.allCurrent()
+GET 	/allPrescribed			controllers.Application.allPrescribed()
+GET		/sortByCondition		controllers.Application.sortByCondition()
+GET 	/sortByDate				controllers.Application.sortByDate()
+
+GET		/refillMedication		controllers.Application.refillMedication()
+
+GET		/enterOTCDrugs			controllers.Application.enterOTCDrugs()
+
+GET		/enterPharmacyInfo		controllers.Application.enterPharmacyInfo()
+
+GET		/uploadTab				controllers.Application.uploadTab()
+GET 	/deleteFile:id		controllers.Application.deleteFile(id: Long)
+
+POST 	/upload					controllers.Application.upload()
