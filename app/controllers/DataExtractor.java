@@ -77,13 +77,18 @@ public class DataExtractor {
 								m.frequency = content[1].toLowerCase();
 								break;
 							case "Status":
-								m.currentTaking = true;
+								System.out.println(content[1]);
+								if(content[1].matches("Active.*")){
+									m.currentTaking = true;
+								}
+								else
+									m.currentTaking = false;
 								break;
 							case "Refills Remaining":
 								m.remaining = Integer.parseInt(content[1]);
 								break;
 							case "Last Filled On":
-								
+								m.lastTakenDate = format.parse(content[1]);
 								break;
 							case "Initially Ordered On":
 								m.startDate = format.parse(content[1]);
@@ -155,8 +160,12 @@ public class DataExtractor {
 							case "Start Date":
 								String[] date = content[1].split("\\s{2,}");
 								m.startDate = format.parse(date[0]);	
-								if(content[2].length()>3)
-									m.lastTakenDate = format.parse(content[2]);
+								if(content[2].length()>3){									
+									m.lastTakenDate = format.parse(content[2]);	
+									m.currentTaking = false;
+								}else{
+									m.currentTaking = true;
+								}
 								break;
 							case "Pharmacy Name":
 								String[] pharmacyInfo = content[1].split("\\s{2,}");

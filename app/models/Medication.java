@@ -9,6 +9,8 @@ import play.data.validation.Constraints.*;
 import javax.persistence.*;
 
 import com.avaje.ebean.Ebean;
+import com.avaje.ebean.Expr;
+
 
 @Entity
 public class Medication extends Model{
@@ -27,13 +29,15 @@ public class Medication extends Model{
 	public int remaining;
 	public Date startDate;
 	public Date lastTakenDate;
-	public boolean currentTaking;
+	public boolean currentTaking = false;
 	public String physician;
 	public String condition;
 	public String reasonForTaking;
 	
 	@ManyToOne
 	public Pharmacy pharmacy;
+	
+	
 	
 //	@ManyToOne
 //	@JoinColumn
@@ -76,10 +80,17 @@ public class Medication extends Model{
 		return find.all();
 	}
 	
+	/**
+	 * delete a medication by a given id
+	 * @param id
+	 */
 	public static void delete(long id){
 		find.ref(id).delete();
 	}
 	
+	/**
+	 * Delete all medication
+	 */
 	public static void deleteAll(){
 		List<Medication> all = find.all();
 		for(Medication a : all){
@@ -87,8 +98,16 @@ public class Medication extends Model{
 		}
 	}
 	
-
+	/**
+	 * Get all current medicaion
+	 * @return
+	 */
+	public static List<Medication> getAllCurrent(){
+		return Medication.find.where().or(Expr.eq("currentTaking", "true"), Expr.eq("lastTakenDate", null)).findList();
+	}
 	
-	
+	public static List<Medication> getAllPrescribed(){
+		return Medication.find.where().eq("prescribed", true).findList();
+	}
 	
 }

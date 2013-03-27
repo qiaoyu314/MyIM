@@ -13,8 +13,12 @@
 		<th>Pharmacy</th>
 	</tr>
 	@for(m<-allCurrentMedication){
-	<tr>
-		<td>@m.name</td>
+	
+		@if(m.prescribed==true){
+			<td><span class="label label-success">prescribed</span>&#160;@m.name</td>
+		}else{
+			<td><span class="label label-warning">OTC</span>&#160;@m.name</td>
+		}		
 		<td>@m.startDate.format("MMM dd yyyy")</td>
 		<td>@m.pharmacy.name</td>
 	</tr>

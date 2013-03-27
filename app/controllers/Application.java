@@ -53,7 +53,7 @@ public class Application extends Controller {
 	public static Result allMedication() {
 
 		
-		List<Medication> l = Medication.find.all();
+		List<Medication> l = Medication.all();
 		return ok(allMedication.render(l));
 	}
 	
@@ -63,14 +63,12 @@ public class Application extends Controller {
 	}
 
 	public static Result allCurrent() {
-		List<Medication> l  = 
-				Medication.find.where().or(Expr.eq("currentTaking", "true"), Expr.eq("lastTakenDate", null)).findList();
-		
+		List<Medication> l  = Medication.getAllCurrent();		
 		return ok(allCurrent.render(l));
 	}
 	
 	public static Result allPrescribed(){
-		List<Medication> l = Medication.find.where().eq("prescribed", true).findList();
+		List<Medication> l = Medication.getAllPrescribed();
 		return ok(allPrescribed.render(l));
 	}
 	
@@ -79,7 +77,7 @@ public class Application extends Controller {
 	}
 	
 	public static Result sortByDate(){
-		List<Medication> allMedication = Medication.find.all();
+		List<Medication> allMedication = Medication.all();
 		Collections.sort(allMedication, new DateComparator());
 		ArrayList<Medication> before2010 = new ArrayList<Medication>();
 		ArrayList<Medication> in2010 = new ArrayList<Medication>();

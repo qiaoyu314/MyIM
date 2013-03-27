@@ -11,7 +11,11 @@
 	//make the content active
 	$("div#allPrescribed").attr("class", "tab-pane active");
 </script>
-
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>	The records with green background are the current-taking medication.
+  </h4>
+</div>
 <table class="table table-striped">
 	<tr>
 		<th>Name</th>
@@ -19,7 +23,11 @@
 		<th>Pharmacy</th>
 	</tr>
 	@for(m<-allPrescribed){
-	<tr>
+		@if(m.currentTaking==true){
+		<tr class="success">
+		}else{
+		<tr>
+		}
 		<td>@m.name</td>
 		<td>@m.startDate.format("MMM dd yyyy")</td>
 		<td>@m.pharmacy.name</td>
