@@ -29,13 +29,8 @@
 				<input type="submit" class="btn btn-primary">
 		</div>
 	</div>
-
-
-
-
-
-
 </form>
+
 <table class="table table-striped">
 	<tr>
 		<th>File Name</th>
@@ -50,14 +45,13 @@
 			<td>@f.uploadDate</td>
 			<td><a class="btn btn-danger" href="@routes.Application.deleteFile(f.id)">Delete</a></td>
 		</tr>
-	}
-	
+	}	
 </table>
-<div></div>
+
 <script>
 	$("#uplad").attr("class", "active");
 	$("#tab5").attr("class","tab-pane active");
-//	$("#tab1").attr("class", "tab-pane");	
-//	$("#veiw_medication_list").attr("class", "");
+	//change the tab color
+	$("a#uplad_anchor").css("background-color","#cff158")
 </script>
 }

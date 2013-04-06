@@ -1,3 +1,7 @@
+#title{
+	margin-left:2%
+}
+
 div.container-fluid{
 	height:2000px;
 	/*background-color:#71B6E3*/
@@ -9,4 +13,8 @@ div#tabs-left{
 
 button.btn-info{
 	margin: 2px;
+}
+
+li.active{
+	color:yellow;
 }

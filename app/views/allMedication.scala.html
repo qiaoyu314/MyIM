@@ -1,4 +1,4 @@
-@(allMedication: List[Medication])
+@(currentPrescribed: List[Medication], currentOTC: List[Medication], pastPrescribed: List[Medication], pastOTC: List[Medication])
 
 @viewMedicationList{
 <script>
@@ -6,8 +6,48 @@
 		$("li#all_medication").attr("class", "active");
 		//make the content active
 		$("div#allMedication").attr("class", "tab-pane active");
+		//change the tab color
+		$("a#all_medication_anchor").css("background-color","#d9e2f7");
 	</script>
 
+<span class="label label-success">Current Prescribed Medication</span>
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Strength</th>
+		<th>Dose</th>
+		<th>Frequency</th>
+		<th>Quantity</th>
+		<th>Days Supply</th>
+		<th>Refills Remaining</th>
+		<th>Initially Ordered Date</th>
+		<th>Last Filled On</th>
+		<th>Pharmacy</th>
+	</tr>
+	@for(m<-currentPrescribed){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.category</td>
+		<td>@m.strength</td>
+		<td>@m.dose</td>
+		<td>@m.frequency</td>
+		<td>@m.quantity</td>
+		<td>@m.daysSupply</td>
+		<td>@m.remaining</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		@if(m.lastTakenDate!=null){
+			<td>@m.lastTakenDate.format("MMM dd yyyy")</td> 
+		}else{
+			<td></td> 
+		}
+		<td>@m.pharmacy.name</td>
+	</tr>
+	}
+
+</table>
+
+<span class="label label-warning">Current OTC</span>
 <table class="table table-striped">
 	<tr>
 		<th>Name</th>
@@ -17,10 +57,9 @@
 		<th>Frequency</th>
 		<th>Start Date</th>
 		<th>Stop Date</th>
-		<th>Reason for taking</th>
 		<th>Pharmacy</th>
 	</tr>
-	@for(m<-allMedication){
+	@for(m<-currentOTC){
 	<tr>
 		<td>@m.name</td>
 		<td>@m.category</td>
@@ -31,11 +70,74 @@
 		@if(m.lastTakenDate!=null){
 		<td>@m.lastTakenDate.format("MMM dd yyyy")</td> }else{
 		<td></td> }
-		<td>@m.reasonForTaking</td>
+		<td>@m.pharmacy.name</td>
+	</tr>
+	}
+</table>
+
+<span class="label label-important">Past Prescribed Medication</span>
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Strength</th>
+		<th>Dose</th>
+		<th>Frequency</th>
+		<th>Quantity</th>
+		<th>Days Supply</th>
+		<th>Refills Remaining</th>
+		<th>Initially Ordered Date</th>
+		<th>Last Filled On</th>
+		<th>Pharmacy</th>
+	</tr>
+	@for(m<-pastPrescribed){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.category</td>
+		<td>@m.strength</td>
+		<td>@m.dose</td>
+		<td>@m.frequency</td>
+		<td>@m.quantity</td>
+		<td>@m.daysSupply</td>
+		<td>@m.remaining</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		@if(m.lastTakenDate!=null){
+			<td>@m.lastTakenDate.format("MMM dd yyyy")</td> 
+		}else{
+			<td></td> 
+		}
 		<td>@m.pharmacy.name</td>
 	</tr>
 	}
 
+</table>
+
+<span class="label label-info">Current OTC</span>
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Strength</th>
+		<th>Dose</th>
+		<th>Frequency</th>
+		<th>Start Date</th>
+		<th>Stop Date</th>
+		<th>Pharmacy</th>
+	</tr>
+	@for(m<-currentOTC){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.category</td>
+		<td>@m.strength</td>
+		<td>@m.dose</td>
+		<td>@m.frequency</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		@if(m.lastTakenDate!=null){
+		<td>@m.lastTakenDate.format("MMM dd yyyy")</td> }else{
+		<td></td> }
+		<td>@m.pharmacy.name</td>
+	</tr>
+	}
 </table>
 <a class="btn btn-danger" href="@routes.Application.deleteAllMedication()">Delete All</a>
 

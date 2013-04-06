@@ -27,9 +27,12 @@ public class Medication extends Model{
 	public String unit;
 	public String frequency;
 	public int remaining;
+	public int quantity;
+	public int daysSupply;
 	public Date startDate;
 	public Date lastTakenDate;
 	public boolean currentTaking = false;
+	public String status;
 	public String physician;
 	public String condition;
 	public String reasonForTaking;
@@ -74,7 +77,7 @@ public class Medication extends Model{
 	}
 
 	
-	public static Finder<Long, Medication> find = new Finder(Long.class, Medication.class);
+	public static Finder<Long, Medication> find = new Finder<Long, Medication>(Long.class, Medication.class);
 	
 	public static List<Medication> all() {
 		return find.all();
@@ -110,4 +113,27 @@ public class Medication extends Model{
 		return Medication.find.where().eq("prescribed", true).findList();
 	}
 	
+	public static List<Medication> getCurrentPrescribed(){
+		return Medication.find.where()
+				.or(Expr.or(Expr.like("status", "Submitted"), Expr.like("status", "Active")), Expr.eq("lastTakenDate", null))
+				.eq("prescribed", true).findList();
+	}
+	
+	public static List<Medication> getCurrentOTC(){
+		return Medication.find.where()
+				.or(Expr.or(Expr.like("status", "Submitted"), Expr.like("status", "Active")), Expr.eq("lastTakenDate", null))				
+				.eq("prescribed", false).findList(); 
+	}
+	
+	public static List<Medication> getPastPrescribed(){
+		return Medication.find.where()
+				.or(Expr.like("status", "Expired"), Expr.eq("lastTakenDate", null))
+				.eq("prescribed", true).findList();
+	}
+	
+	public static List<Medication> getPastOTC(){
+		return Medication.find.where()
+				.or(Expr.like("status", "Expired"), Expr.eq("lastTakenDate", null))
+				.eq("prescribed", false).findList();
+	}
 }

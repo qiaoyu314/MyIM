@@ -54,7 +54,11 @@ public class Application extends Controller {
 
 		
 		List<Medication> l = Medication.all();
-		return ok(allMedication.render(l));
+		List<Medication> currentPrescribed = Medication.getCurrentPrescribed();
+		List<Medication> currentOTC = Medication.getCurrentOTC();
+		List<Medication> pastPrescribed = Medication.getPastPrescribed();
+		List<Medication> pastOTC = Medication.getPastOTC();
+		return ok(allMedication.render(currentPrescribed, currentOTC, pastPrescribed, pastOTC));
 	}
 	
 	public static Result deleteAllMedication(){
@@ -63,13 +67,15 @@ public class Application extends Controller {
 	}
 
 	public static Result allCurrent() {
-		List<Medication> l  = Medication.getAllCurrent();		
-		return ok(allCurrent.render(l));
+		List<Medication> currentPrescribed = Medication.getCurrentPrescribed();
+		List<Medication> currentOTC = Medication.getCurrentOTC();		
+		return ok(allCurrent.render(currentPrescribed, currentOTC));
 	}
 	
 	public static Result allPrescribed(){
-		List<Medication> l = Medication.getAllPrescribed();
-		return ok(allPrescribed.render(l));
+		List<Medication> currentPrescribed = Medication.getCurrentPrescribed();
+		List<Medication> pastPrescribed = Medication.getPastPrescribed();
+		return ok(allPrescribed.render(currentPrescribed, pastPrescribed));
 	}
 	
 	public static Result sortByCondition(){

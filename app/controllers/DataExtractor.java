@@ -36,7 +36,6 @@ public class DataExtractor {
 		try {
 			this.reader = new BufferedReader(new FileReader(file));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -77,12 +76,7 @@ public class DataExtractor {
 								m.frequency = content[1].toLowerCase();
 								break;
 							case "Status":
-								System.out.println(content[1]);
-								if(content[1].matches("Active.*")){
-									m.currentTaking = true;
-								}
-								else
-									m.currentTaking = false;
+								m.status = content[1];
 								break;
 							case "Refills Remaining":
 								m.remaining = Integer.parseInt(content[1]);
@@ -94,10 +88,10 @@ public class DataExtractor {
 								m.startDate = format.parse(content[1]);
 								break;
 							case "Quantity":
-								
+								m.quantity = Integer.parseInt(content[1]);
 								break;
 							case "Days Supply":
-								
+								m.daysSupply = Integer.parseInt(content[1]);
 								break;
 							case "Pharmacy":
 								m.setPharmacy(content[1]);
@@ -114,10 +108,8 @@ public class DataExtractor {
 				}
 				// detect "medications and supplements" part
 				else if(line.matches("^-+\\s*MEDICATIONS.*")) {
-					// System.out.println("Got it!");
-					// System.out.println(line);
-					// begin to read medication info
-					
+
+					// begin to read medication info					
 					Medication m = null;
 					
 					while((line = reader.readLine()) != null) {

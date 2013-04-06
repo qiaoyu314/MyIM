@@ -4,11 +4,11 @@
 
 <div class="tabbable tabs-top">
 	<ul class="nav nav-tabs">
-		<li id="all_medication"><a href="/allMedication" >All Medication List</a></li>
-		<li id="all_current"><a  href="/allCurrent" >All current Medication</a></li>
-		<li><a href="/allPrescribed" >All Prescribed Medication</a></li>
+		<li  id="all_medication" ><a id="all_medication_anchor" href="/allMedication" >All Medication List</a></li>
+		<li id="all_current"><a id="all_current_anchor" href="/allCurrent" >All current Medication</a></li>
+		<li id="all_prescribed"><a id="all_prescribed_anchor" href="/allPrescribed" >All Prescribed Medication</a></li>
 		<li><a href="/sortByCondition">Sort By Condition</a></li>
-		<li id="sory_by_date"><a href="/sortByDate" >Sort By Date</a></li>
+		<li id="sory_by_date"><a id="sory_by_date_anchor" href="/sortByDate" >Sort By Date</a></li>
 	</ul>
 </div>
 
@@ -20,9 +20,9 @@
 	<div class="tab-pane" id="sortByDate">@sortByDate</div>
 </div>
 <script>
-	$("#tab1").attr("class", "tab-pane active");
-	$("#veiw_medication_list").attr("class", "active");
-	
+	$("div#tab1").attr("class", "tab-pane active");
+	$("li#veiw_medication_list").attr("class", "active");
+	$("a#veiw_medication_list_anchor").css("background-color","#cff158")
 </script>
 } {
 
