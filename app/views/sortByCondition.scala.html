@@ -1,0 +1,91 @@
+@(medicationSortedByCondition: List[Medication])
+
+@viewMedicationList{ }{ }{ }{
+
+
+
+<table class='table' id='table-note'>
+<tr class='success'><td>Current taking</td></tr>
+<tr class='warning'><td>No longer taking</td></tr>
+</table>
+<br>
+
+<!-- The data in the table added by Yu manually -->
+<span class="label label-important">For cholesterol prescribed medication</span>
+<table class='table'>
+<tr>
+	<th>Name</th>
+	<th>Strength</th>
+	<th>Dose</th>
+	<th>Frequency</th>
+	<th>Initially Ordered Date</th>
+	<th>Last Filled On</th>
+	<th>Pharmacy</th>
+	<th>Good to take</th>
+</tr>
+<tr class='success'>
+	<td>amlodipine besylate</td>
+	<td>10mg tab</td>
+	<td>1 table</td>
+	<td>daily</td>
+	<td>Aug 13 2010</td>
+	<td>Aug 20 2010</td>
+	<td>DAYTON</td>
+	<td>&#10004;</td>
+</tr>
+<tr class='warning'>
+	<td>ibuprofen</td>
+	<td>600mg tab</td>
+	<td>1 table</td>
+	<td>three time a day</td>
+	<td>Jul 01 2010</td>
+	<td>Aug 20 2010</td>
+	<td>DAYTON</td>
+	<td><a id='ibuprofen' class='sideEffect' href='#' data-placement='left'data-html='true' data-content='side effect details are shown here'>&#10006;</a></td>
+</tr>
+</table>
+
+<br/><br/><br/>
+<span class="label label-important">For pain relief OTC medication</span>
+<table class='table'>
+<tr>
+	<th>Name</th>
+	<th>Strength</th>
+	<th>Dose</th>
+	<th>Frequency</th>
+	<th>Initially Ordered Date</th>
+	<th>Last Filled On</th>
+	<th>Pharmacy</th>
+	<th>Good to take</th>
+</tr>
+<tr class='success'>
+	<td>amlodipine besylate</td>
+	<td>10mg tab</td>
+	<td>1 table</td>
+	<td>daily</td>
+	<td>Aug 13 2010</td>
+	<td>Aug 20 2010</td>
+	<td>DAYTON</td>
+	<td>&#10004;</td>
+</tr>
+<tr class='warning'>
+	<td>ibuprofen</td>
+	<td>600mg tab</td>
+	<td>1 table</td>
+	<td>three time a day</td>
+	<td>Jul 01 2010</td>
+	<td>Aug 20 2010</td>
+	<td>DAYTON</td>
+	<td><a class='sideEffect' id='ibuprofen' href='#' data-placement='left'data-html='true' data-content='side effect details are shown here'>&#10006;</a></td>
+</tr>
+</table>
+
+<script>
+	//make the tag active
+	$("li#sort_by_condition").attr("class", "active");
+	//make the content active
+	$("div#sortByCondition").attr("class", "tab-pane active");
+	//change the tab color
+	$("a#ibuprofen").popover();
+</script>
+ }{ }

@@ -1,0 +1,21 @@
+ @(enterNewOTC:Html)(existingOTC:Html)
+
+ @main("OTC Drugs"){ }{ } {
+<script>
+	$("#enter_OTC_drugs").attr("class", "active");
+	$("#tab3").attr("class","tab-pane active");
+
+</script>
+
+<div class="tabbable tabs-top">
+	<ul class="nav nav-tabs">
+		<li  id="enter_new_OTC" ><a id="enter_new_OTC_anchor" href="/newOTC" >New OTC Drug</a></li>
+		<li id="existing_OTC"><a id="existing_OTC_anchor" href="/existingOTC" >Existing OTC Drugs</a></li>
+	</ul>
+</div>
+
+<div class="tab-content">
+	<div class="tab-pane" id="enterNewOTC">@enterNewOTC</div>
+	<div class="tab-pane" id="existingOTC">@existingOTC</div>
+</div>
+}{ }{ }

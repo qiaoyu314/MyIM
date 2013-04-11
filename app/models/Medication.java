@@ -36,6 +36,7 @@ public class Medication extends Model{
 	public String physician;
 	public String condition;
 	public String reasonForTaking;
+	public boolean hasSideEffect;
 	
 	@ManyToOne
 	public Pharmacy pharmacy;
@@ -111,6 +112,10 @@ public class Medication extends Model{
 	
 	public static List<Medication> getAllPrescribed(){
 		return Medication.find.where().eq("prescribed", true).findList();
+	}
+
+	public static List<Medication> getAllOTC(){
+		return Medication.find.where().eq("prescribed", false).findList();
 	}
 	
 	public static List<Medication> getCurrentPrescribed(){

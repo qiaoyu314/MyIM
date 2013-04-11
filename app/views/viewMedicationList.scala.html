@@ -1,13 +1,13 @@
 @(allMedication:Html)(allCurrent:Html)(allPrescribed:Html)(sortByCondition:Html)(sortByDate:Html)
 
-@main("Medication List"){
+@main("View Medication"){
 
 <div class="tabbable tabs-top">
 	<ul class="nav nav-tabs">
 		<li  id="all_medication" ><a id="all_medication_anchor" href="/allMedication" >All Medication List</a></li>
 		<li id="all_current"><a id="all_current_anchor" href="/allCurrent" >All current Medication</a></li>
 		<li id="all_prescribed"><a id="all_prescribed_anchor" href="/allPrescribed" >All Prescribed Medication</a></li>
-		<li><a href="/sortByCondition">Sort By Condition</a></li>
+		<li id="sort_by_condition"><a href="/sortByCondition">Sort By Condition</a></li>
 		<li id="sory_by_date"><a id="sory_by_date_anchor" href="/sortByDate" >Sort By Date</a></li>
 	</ul>
 </div>
@@ -22,7 +22,6 @@
 <script>
 	$("div#tab1").attr("class", "tab-pane active");
 	$("li#veiw_medication_list").attr("class", "active");
-	$("a#veiw_medication_list_anchor").css("background-color","#cff158")
 </script>
 } {
 

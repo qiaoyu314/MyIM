@@ -7,7 +7,6 @@
 	//make the content active
 	$("div#allCurrent").attr("class", "tab-pane active");
 	//change the tab color
-	$("a#all_current_anchor").css("background-color","#d9e2f7")
 </script>
 
 <span class="label label-success">Current Prescribed Medication</span>
@@ -24,6 +23,7 @@
 		<th>Initially Ordered Date</th>
 		<th>Last Filled On</th>
 		<th>Pharmacy</th>
+		<th>Good to take</th>
 	</tr>
 	@for(m<-currentPrescribed){
 	<tr>
@@ -42,6 +42,13 @@
 			<td></td> 
 		}
 		<td>@m.pharmacy.name</td>
+		<td>
+		@if(m.hasSideEffect){
+			&#10006;
+		}else{
+			&#10004;
+		}
+		</td>
 	</tr>
 	}
 
@@ -58,6 +65,7 @@
 		<th>Start Date</th>
 		<th>Stop Date</th>
 		<th>Pharmacy</th>
+		<th>Good to take</th>
 	</tr>
 	@for(m<-currentOTC){
 	<tr>
@@ -71,6 +79,13 @@
 		<td>@m.lastTakenDate.format("MMM dd yyyy")</td> }else{
 		<td></td> }
 		<td>@m.pharmacy.name</td>
+		<td>
+		@if(m.hasSideEffect){
+			&#10006;
+		}else{
+			&#10004;
+		}
+		</td>
 	</tr>
 	}
 </table>

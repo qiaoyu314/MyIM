@@ -12,6 +12,7 @@ public class Pharmacy extends Model{
 	public long id;
 	public String name;
 	public String phone;
+	public String location;
 	@OneToMany(cascade = { CascadeType.REFRESH, CascadeType.PERSIST,CascadeType.MERGE})
 	public List<Medication> medicationList;
 	
@@ -28,6 +29,10 @@ public class Pharmacy extends Model{
 	}
 	
 	public static Model.Finder<Long,Pharmacy> find = new Model.Finder(Long.class, Pharmacy.class);
+
+	public static List<Pharmacy> getAllPharmacy(){
+		return find.all();
+	}
 
 
 }

@@ -2698,3 +2698,49 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-168]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
 	... 17 more
+04-11 17:50:02 jdbc[61]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:172)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at play.utils.ProxyDriver.connect(ProxyDriver.scala:9)
+	at java.sql.DriverManager.getConnection(DriverManager.java:579)
+	at java.sql.DriverManager.getConnection(DriverManager.java:221)
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:256)
+	at com.jolbox.bonecp.ConnectionHandle.obtainInternalConnection(ConnectionHandle.java:211)
+	at com.jolbox.bonecp.ConnectionHandle.<init>(ConnectionHandle.java:170)
+	at com.jolbox.bonecp.PoolWatchThread.fillConnections(PoolWatchThread.java:101)
+	at com.jolbox.bonecp.PoolWatchThread.run(PoolWatchThread.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 18 more
+04-11 17:50:02 jdbc[61]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:172)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at play.utils.ProxyDriver.connect(ProxyDriver.scala:9)
+	at java.sql.DriverManager.getConnection(DriverManager.java:579)
+	at java.sql.DriverManager.getConnection(DriverManager.java:221)
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:256)
+	at com.jolbox.bonecp.ConnectionHandle.obtainInternalConnection(ConnectionHandle.java:211)
+	at com.jolbox.bonecp.ConnectionHandle.<init>(ConnectionHandle.java:170)
+	at com.jolbox.bonecp.PoolWatchThread.fillConnections(PoolWatchThread.java:101)
+	at com.jolbox.bonecp.PoolWatchThread.run(PoolWatchThread.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 18 more

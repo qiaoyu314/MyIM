@@ -15,6 +15,19 @@ button.btn-info{
 	margin: 2px;
 }
 
-li.active{
-	color:yellow;
+
+a.sideEffect{
+	color: red;
+}
+
+table#table-note{
+	font-size: 12px;
+	width: 20%;
+	position:relative;
+	left:80%;
+}
+
+img.starIcon{
+	width: 8%;
+	height:atuo;
 }

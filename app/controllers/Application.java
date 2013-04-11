@@ -79,7 +79,7 @@ public class Application extends Controller {
 	}
 	
 	public static Result sortByCondition(){
-		return TODO;
+		return ok(sortByCondition.render(null));
 	}
 	
 	public static Result sortByDate(){
@@ -109,15 +109,22 @@ public class Application extends Controller {
 	
 	
 	public static Result refillMedication(){
-		return TODO;
+		return ok(refillMedication.render());
 	}
 	
-	public static Result enterOTCDrugs(){
-		return TODO;
+
+	public static Result newOTC(){
+		return ok(newOTC.render());
 	}
+
+	public static Result existingOTC(){
+		return ok(existingOTC.render(Medication.getAllOTC()));
+	}
+
 	
 	public static Result enterPharmacyInfo(){
-		return TODO;
+
+		return ok(enterPharmacyInfo.render(Pharmacy.getAllPharmacy()));
 	}
 	
 	public static Result uploadTab() {

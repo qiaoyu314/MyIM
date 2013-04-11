@@ -1,0 +1,44 @@
+@main("Medication List"){ } { 
+
+<span class='label label-success'>Need to refill among current medication</span>
+
+<!-- this table is added by Yu for mockup -->
+<table class='table'>
+<tr>
+<th>Name</th>
+<th>Refills Remaining</th>
+<th>Pharmacy</th>
+<th>Action</th>
+<th>Request Date</th>
+<th>Refill Status</th>
+<th>Validate</th>
+</tr>
+<tr>
+<td>ABC</td>
+<td>3</td>
+<td>
+	<select>
+		<option>Pharmcy 1</option>
+		<option>Pharmcy 2</option>
+		<option>Pharmcy 3</option>
+		<option>Pharmcy 4</option>
+	</select>
+</td>
+<td><button id='send' class='btn btn-success'>Send</button> </td>
+<td id='date'></td>
+<td id='status'></td>
+<td><input type='checkbox' value='Correct'/>Correct<br/><input type='checkbox' value='Wrong'/>Wrong</td>
+</tr>
+</table>
+<script>
+	$("#refill_medication").attr("class", "active");
+	$("#tab2").attr("class","tab-pane active");
+	$("button#send").click(function(){
+		today = new Date();
+		format = (today.getMonth()+1) + "/" + (today.getDay()) + "/" + (today.getFullYear());
+		$("td#date").html(format);
+		$("td#status").html("Request");
+	});
+		
+</script>
+} { } { } { }

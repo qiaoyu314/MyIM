@@ -33,6 +33,7 @@ create table medication (
   physician                 varchar(255),
   condition                 varchar(255),
   reason_for_taking         varchar(255),
+  has_side_effect           boolean,
   pharmacy_id               bigint,
   constraint pk_medication primary key (id))
 ;
@@ -41,6 +42,7 @@ create table pharmacy (
   id                        bigint not null,
   name                      varchar(255),
   phone                     varchar(255),
+  location                  varchar(255),
   constraint pk_pharmacy primary key (id))
 ;
 

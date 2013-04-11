@@ -25,7 +25,8 @@ GET 	/sortByDate				controllers.Application.sortByDate()
 
 GET		/refillMedication		controllers.Application.refillMedication()
 
-GET		/enterOTCDrugs			controllers.Application.enterOTCDrugs()
+GET		/newOTC					controllers.Application.newOTC()
+GET		/existingOTC			controllers.Application.existingOTC()
 
 GET		/enterPharmacyInfo		controllers.Application.enterPharmacyInfo()
 

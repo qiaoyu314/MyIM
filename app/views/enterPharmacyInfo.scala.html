@@ -1,0 +1,70 @@
+@(allPharmacy:List[Pharmacy])
+
+@main("Enter Pharmacy Info"){ }{ }{ }{
+
+<div class="row-fluid">
+  <div class="span6">
+  	<h3>Add new pharmacy</h3>
+  	<form class="form-horizontal">
+	<div class="control-group">
+    <label class="control-label" for="name">Parmacy Name</label>
+    <div class="controls">
+      <input type="text" id="name"/>
+    </div>
+  </div>
+
+  	<div class="control-group">
+    <label class="control-label" for="phone">Pamacy Phone</label>
+    <div class="controls">
+      <input type="text" id="phone"/>
+    </div>
+  </div>
+
+  	<div class="control-group">
+    <label class="control-label" for="location">Location</label>
+    <div class="controls">
+      <input type="text" id="location" />
+    </div>
+  </div>
+
+  <div class="control-group">
+  	<div class="controls">
+      <input type="checkbox" id="preferred" /><span></span> Preferred pharmacy? <img class='starIcon' src=@routes.Assets.at("images/star.png")/>
+    </div>
+    <!-- <label class="control-label" for="preferred">Preferred pharmacy?</label> -->
+    
+  </div>
+
+  <div class="control-grounp"> 
+  	<div class="controls">
+  		<button type="submit" class="btn btn-primary">Submit</button>
+  	</div>
+  </div>
+</form>	
+  </div>
+
+
+  <div class="span6">
+  	<h3>Existing pharmacy</h3>
+  	<table class='table'>
+  		<tr>
+  			<th>Name</th><th>Phone</th><th>Location</th>
+  		</tr>
+  		@for(p<-allPharmacy){
+  		<tr>
+  			<td>@p.name</td><td>@p.phone</td><td>@p.location</td>
+  		</tr>
+  	}
+  	<!-- this row is added for mockup	 -->
+  	<tr>
+  		<td><img class='starIcon' src=@routes.Assets.at("images/star.png")/>CVS</td><td>614-000-0000</td><td>1 Main St.</td>
+  	</tr>
+  	</table>
+  </div>
+</div>
+
+<script>
+	$("#enter_pharmacy_info").attr("class", "active");
+	$("#tab4").attr("class","tab-pane active");
+</script>
+ }{ }

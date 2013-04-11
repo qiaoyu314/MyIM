@@ -1,0 +1,49 @@
+@(allOTC: List[Medication])
+@enterOTC{
+
+
+
+
+}{ 
+
+<script>
+  $("div#existingOTC").attr("class", "tab-pane active");
+  $("li#existing_OTC").attr("class", "active");
+</script>
+
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Strength</th>
+		<th>Dose</th>
+		<th>Frequency</th>
+		<th>Start Date</th>
+		<th>Stop Date</th>
+		<th>Pharmacy</th>
+		<th>Good to take</th>
+
+	</tr>
+	@for(m<-allOTC){
+	<tr>
+		<td>@m.name</td>
+		<td>@m.category</td>
+		<td>@m.strength</td>
+		<td>@m.dose</td>
+		<td>@m.frequency</td>
+		<td>@m.startDate.format("MMM dd yyyy")</td>
+		@if(m.lastTakenDate!=null){
+		<td>@m.lastTakenDate.format("MMM dd yyyy")</td> }else{
+		<td></td> }
+		<td>@m.pharmacy.name</td>
+		<td>
+		@if(m.hasSideEffect){
+			&#10006;
+		}else{
+			&#10004;
+		}
+		</td>
+	</tr>
+	}
+</table>
+}
